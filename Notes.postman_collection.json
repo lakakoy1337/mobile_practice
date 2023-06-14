@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "6a67615c-bdd7-49fa-8002-1c4fd0b75a66",
+		"name": "Notes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27853085",
+		"_collection_link": "https://www.postman.com/cryosat-participant-65997119/workspace/stud-practice/collection/27853085-6a67615c-bdd7-49fa-8002-1c4fd0b75a66?action=share&creator=27853085&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "account",
+			"item": [
+				{
+					"name": "create",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "name",
+								"value": "username",
+								"description": "username for create account",
+								"type": "text"
+							},
+							{
+								"key": "secret",
+								"value": "password",
+								"description": "password for your account",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{service}}/account?name=testname1&secret=testpass",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"account"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "testname1",
+									"description": "username for new account \n"
+								},
+								{
+									"key": "secret",
+									"value": "testpass",
+									"description": "password for new account"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "note",
+			"item": [
+				{
+					"name": "add",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/note?token=51m2hb&title=sometitle23&content=somecontent23",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51m2hb",
+									"description": "active session token"
+								},
+								{
+									"key": "title",
+									"value": "sometitle23",
+									"description": "new note title"
+								},
+								{
+									"key": "content",
+									"value": "somecontent23",
+									"description": "new note data"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "content",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/note?token=51m2hb&id=1",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51m2hb",
+									"description": "send token from current session for note content"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "send id from note what content we need"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/note?token=51m2hb",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51m2hb",
+									"description": "send token from current session for notes list"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/note?token=51m2hb&id=1",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51m2hb",
+									"description": "send token from current session"
+								},
+								{
+									"key": "id",
+									"value": "1",
+									"description": "send current note id for delete"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/note?id=1&token=51m2hbynra&title=newtitle&content=newcontent",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"note"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1",
+									"description": "note id for edit"
+								},
+								{
+									"key": "token",
+									"value": "51m2hbynra",
+									"description": "send token from current session for note edit\n\n"
+								},
+								{
+									"key": "title",
+									"value": "newtitle",
+									"description": "updated title for note"
+								},
+								{
+									"key": "content",
+									"value": "newcontent",
+									"description": "updated content for note"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "session",
+			"item": [
+				{
+					"name": "open",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/session?name=testname1&secret=testpass",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"session"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "testname1",
+									"description": "username for session create"
+								},
+								{
+									"key": "secret",
+									"value": "testpass",
+									"description": "password for session create"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "close",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{service}}/session?token=51m2hbynra",
+							"host": [
+								"{{service}}"
+							],
+							"path": [
+								"session"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "51m2hbynra",
+									"description": "delete token from table to session unactive"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
